@@ -782,7 +782,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .result-insights ul { list-style: none; padding: 0; margin: 16px 0 0; }
 .result-insights li { display: grid; gap: 5px; border-top: 1px solid #e0d9df; padding: 13px 0; }
 .result-insights li span { font-size: 13px; line-height: 1.4; color: #615b64; }
-.baseline-card { padding: 30px; border: 1px solid #d8d0d8; background: #f5f0f4; border-radius: 23px; margin-top: 48px; }
+.baseline-card { padding: 30px; border: 1px solid #d8d4e1; background: linear-gradient(115deg,#eef8f8 0%,#f2f1fa 55%,#f8eef7 100%); border-radius: 23px; margin-top: 48px; }
 .baseline-card > p { max-width: 830px; font-size: 15px; line-height: 1.5; color: #605a63; }
 .baseline-grid { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid #d4c9d2; margin-top: 25px; }
 .baseline-grid > div { display: grid; gap: 14px; padding: 17px 14px 0 0; }
@@ -904,7 +904,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .circular-gauge-value { z-index: 1; font-size: 30px; line-height: 1; font-weight: 600; letter-spacing: -.045em; color: #211f25; font-variant-numeric: tabular-nums; }
 .circular-gauge-value small { font-size: 11px; letter-spacing: 0; color: #77717d; margin-left: 2px; }
 .circular-gauge.readiness { --gauge-a: #50aebc; --gauge-b: #647cae; }
-.circular-gauge.impact { --gauge-a: #e59887; --gauge-b: #a95d8d; }
+.circular-gauge.impact { --gauge-a: #9d174d; --gauge-b: #19aeb0; }
 .circular-gauge.large { width: 166px; }
 .circular-gauge.large::before { inset: 13px; }
 .circular-gauge.large .circular-gauge-value { font-size: 36px; }
@@ -937,15 +937,19 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .delta-scale-row { min-width: 0; }
 .delta-scale-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 11px; }
 .delta-scale-heading > span { font-size: 13px; color: #55515c; }
-.delta-scale-heading strong { color: #397f91; font-size: 18px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.delta-scale-heading strong.negative { color: #a65c84; }
+.delta-scale-heading strong { color: #087b78; font-size: 18px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.delta-scale-heading strong.positive { color:#087b78; }
+.delta-scale-heading strong.negative { color: #b21d63; }
 .delta-scale-heading strong small { font-size: 10px; }
-.delta-scale { position: relative; height: 10px; border-radius: 20px; background: linear-gradient(90deg,#f1dfe7 0%,#efedef 48%,#e5f0ee 52%,#d2e8e3 100%); }
-.delta-scale-center { position: absolute; top: -4px; left: 50%; height: 18px; width: 1px; background: #68616e; }
+.delta-scale { position: relative; height: 12px; border-radius: 20px; background: linear-gradient(90deg,#f0cbdc 0%,#f8e9f0 44%,#f1eef2 49%,#f1eef2 51%,#e7f3f0 56%,#c8e6df 100%); }
+.delta-scale-center { position: absolute; z-index:1; top: -5px; left: 50%; height: 22px; width: 2px; background: #4d4653; }
 .delta-scale i { position: absolute; top: 0; height: 100%; border-radius: 20px; }
-.delta-scale .delta-positive { background: linear-gradient(90deg,#70bdb6,#608eaa); }
-.delta-scale .delta-negative { background: linear-gradient(90deg,#d77d9b,#bd6795); }
-.delta-scale b { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; transform: translate(-50%,-50%); background: #fff; border: 3px solid #715b8a; box-shadow: 0 1px 5px #24202a32; }
+.delta-scale .delta-positive { background: linear-gradient(90deg,#087f79,#0aa79a); }
+.delta-scale .delta-negative { background: linear-gradient(90deg,#d63278,#ae1458); }
+.delta-scale b { position: absolute; z-index:2; top: 50%; width: 16px; height: 16px; border-radius: 50%; transform: translate(-50%,-50%); background: #fff; border: 3px solid #4d4653; box-shadow: 0 1px 4px rgba(36,32,42,.3); }
+.delta-scale b.delta-marker-positive { border-color:#087b78; }
+.delta-scale b.delta-marker-negative { border-color:#b21d63; }
+.delta-scale-ticks { color:#5f5964; font-size:11px; font-weight:550; }
 .pressure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 17px; }
 .pressure-pair > div > span { font-size: 11px; color: #5e5964; }
 .pressure-pair b { display: block; margin-top: 4px; font-size: 20px; color: #27242b; font-variant-numeric: tabular-nums; }
@@ -1054,6 +1058,243 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .indicator-scale.impact .indicator-scale-marker { background:#af5188; }
 .indicator-scale-ticks { margin-top:23px; color:#77717d; font-size:10px; }
 .indicator-scale.compact { margin-bottom:16px; }
+
+/* Transition result: compare the two illustrative profiles with calm, aligned rows. */
+.transition-structural {
+  display:grid;
+  gap:20px;
+  padding:clamp(22px,3.5vw,36px);
+}
+.transition-structural-heading { display:grid; gap:8px; }
+.transition-structural-heading .section-kicker { margin:0; }
+.transition-structural-heading > p,
+.transition-structural-note { margin:0; color:#625d67; font-size:14px; line-height:1.55; }
+.structural-comparison { align-items:stretch; gap:16px; }
+.transition-structural .structural-profile {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  padding:clamp(17px,2.4vw,25px);
+  border:1px solid #ded8e2;
+  border-radius:18px;
+  background:rgba(255,255,255,.82);
+}
+.structural-profile-heading {
+  min-width:0;
+  display:grid;
+  grid-template-columns:36px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  margin-bottom:15px;
+}
+.structural-profile-index {
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border-radius:11px;
+  background:linear-gradient(145deg,#e6f7f7,#efe9f8);
+  color:#527ca1;
+  font-size:12px;
+  font-weight:750;
+  font-variant-numeric:tabular-nums;
+}
+.structural-profile-heading > div { min-width:0; }
+.structural-profile-heading > div > span {
+  display:block;
+  margin:1px 0 5px;
+  color:#817987;
+  font-size:10px;
+  font-weight:750;
+  letter-spacing:.09em;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+.structural-profile-heading h3 {
+  min-width:0;
+  margin:0;
+  color:#211f26;
+  font-size:clamp(17px,1.7vw,21px);
+  font-weight:650;
+  line-height:1.28;
+  overflow-wrap:anywhere;
+}
+.transition-structural .structural-indicators {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+  margin:0;
+}
+.structural-metric {
+  min-width:0;
+  padding:13px 0 15px;
+  border-top:1px solid #e8e3e9;
+}
+.structural-metric-heading {
+  min-width:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  align-items:baseline;
+}
+.structural-metric-heading > span {
+  min-width:0;
+  color:#514c57;
+  font-size:13px;
+  font-weight:540;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+.structural-metric-heading > strong {
+  display:inline-flex;
+  align-items:baseline;
+  gap:2px;
+  color:#4a83ac;
+  font-size:21px;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  line-height:1;
+  white-space:nowrap;
+}
+.structural-metric-heading > strong small {
+  margin:0;
+  color:#98929d;
+  font-size:10px;
+  font-weight:600;
+}
+.structural-metric .indicator-scale.compact { margin:10px 0 0; }
+.structural-metric .indicator-scale-track { height:8px; background:#e9e6eb; }
+.structural-metric .indicator-scale-marker { width:13px; height:11px; }
+.structural-profile-coverage {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin:auto 0 0;
+  padding-top:13px;
+  border-top:1px solid #e8e3e9;
+  color:#77717d;
+  font-size:11px;
+  line-height:1.4;
+}
+.structural-profile-coverage strong { color:#97517f; font-weight:700; }
+.transition-structural-note { max-width:unset !important; }
+@media(max-width:760px) {
+  .transition-structural { gap:16px; }
+  .structural-comparison { grid-template-columns:minmax(0,1fr); }
+  .transition-structural .structural-profile { padding:18px; }
+}
+
+/* Give transition comparison cards the same five-zone score language as the main report. */
+.transition-comparison-head { grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr); gap:14px; }
+.transition-comparison-head article {
+  min-width:0;
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:10px;
+  padding:30px;
+}
+.transition-comparison-head article > span { font-size:11px; }
+.transition-comparison-head h2 {
+  margin:0;
+  font-size:clamp(26px,3vw,31px);
+  line-height:1.22;
+  letter-spacing:-.025em;
+  overflow-wrap:anywhere;
+}
+.transition-comparison-head small { font-size:14px; }
+.transition-score-row { grid-template-columns:1.15fr 1.35fr .9fr; }
+.transition-score-row .section-kicker,
+.transition-score-row .score-gauge-copy > span,
+.transition-score-row .circular-gauge-value,
+.transition-score-row .effort-value { color:#765174; }
+.transition-score-row .gap-score.negative,
+.transition-score-row .delta-scale-heading strong.negative { color:#a31b5a; }
+.transition-score-row .gap-score.positive,
+.transition-score-row .delta-scale-heading strong.positive { color:#087b78; }
+.transition-gauge-card .score-gauge-card.compact {
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  justify-items:stretch;
+  align-content:start;
+  gap:10px;
+}
+.baseline-card .delta-scale {
+  background:linear-gradient(90deg,#e6e3f0 0%,#f0edf5 47%,#edf0f4 53%,#e1eff0 100%);
+}
+.baseline-card .delta-scale .delta-negative { background:linear-gradient(90deg,#6458b1,#9251a0); }
+.baseline-card .delta-scale .delta-positive { background:linear-gradient(90deg,#448fca,#1ca8aa); }
+.baseline-card .delta-scale b.delta-marker-negative { border-color:#7655a9; }
+.baseline-card .delta-scale b.delta-marker-positive { border-color:#248f9f; }
+.baseline-card .delta-scale-heading strong.negative { color:#7655a9; }
+.baseline-card .delta-scale-heading strong.positive { color:#168796; }
+.transition-gauge-card .score-gauge-copy { max-width:none; }
+.transition-gauge-card .score-gauge-copy > span { font-size:17px; line-height:1.3; }
+.transition-gauge-card .score-gauge-copy p { margin-top:6px; font-size:13px; }
+.transition-gauge-card .circular-gauge.has-overall-meter {
+  justify-self:center;
+  width:min(100%,220px);
+  height:150px;
+  flex:none;
+  aspect-ratio:auto;
+  overflow:visible;
+  background:transparent;
+}
+.transition-gauge-card .circular-gauge.has-overall-meter::before { display:none; }
+.transition-gauge-card .circular-gauge-rings { position:absolute; z-index:1; top:0; left:0; width:100%; height:auto; overflow:visible; }
+.transition-gauge-card .circular-gauge.has-overall-meter .circular-gauge-value {
+  position:absolute;
+  z-index:3;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  white-space:nowrap;
+}
+.structural-profile-heading {
+  grid-template-columns:42px minmax(0,1fr);
+  gap:14px;
+  align-items:center;
+  min-height:58px;
+  margin-bottom:16px;
+}
+.structural-profile-index { width:42px; height:42px; border-radius:13px; font-size:13px; }
+.structural-profile-heading > div > span { margin:0 0 6px; font-size:10px; }
+.structural-profile-heading h3 { font-size:clamp(18px,1.9vw,22px); line-height:1.25; }
+.report-two-col .transition-skill-list {
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:8px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.report-two-col .transition-skill-list li {
+  min-width:0;
+  margin:0;
+  padding:10px 12px;
+  border:1px solid #e4e0e7;
+  border-left:3px solid #63aeb8;
+  border-radius:5px 12px 12px 5px;
+  background:linear-gradient(100deg,#f1f9f8,#faf8fb);
+  color:#36323b;
+  font-size:15px;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+.report-two-col > div:nth-child(2) .transition-skill-list li {
+  border-left-color:#a45a91;
+  background:linear-gradient(100deg,#f8f2f7,#fbfafb);
+}
+@media(max-width:760px) {
+  .transition-comparison-head article { min-height:unset; padding:24px; }
+  .transition-comparison-head h2 { font-size:26px; }
+  .transition-score-row { grid-template-columns:minmax(0,1fr); }
+  .transition-gauge-card .circular-gauge.has-overall-meter { width:min(100%,250px); height:170px; }
+  .structural-profile-heading { min-height:54px; }
+}
 .v2-score-panel .indicator-scale-ticks { margin-top:23px; font-size:10px; }
 .v2-score-metric > div:first-child b,.v2-preview-metric > div:first-child b { color:#9c4f88; font-size:22px; font-weight:680; letter-spacing:-.04em; }
 .v2-score-metric > div:first-child b small,.v2-preview-metric > div:first-child b small { color:#665d70; font-size:12px; font-weight:600; }
@@ -1958,8 +2199,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .indicator-card-head strong { font-size:27.6px; }
 .pressure-pair > div > span { font-size:12.65px; }
 .pressure-pair b { font-size:23px; }
-.result-titleline .score-gauge-card.large .circular-gauge-value { font-size:43.2px; }
-.result-titleline .score-gauge-card.large .circular-gauge.has-overall-meter { width:260px; height:225px; aspect-ratio:auto; overflow:visible; background:transparent; }
+.result-titleline .score-gauge-card.large .circular-gauge-value { font-size:58.3px; }
+.result-titleline .score-gauge-card.large .circular-gauge.has-overall-meter { width:350px; height:auto; aspect-ratio:260 / 225; overflow:visible; background:transparent; transform:translateX(-20%); }
 .circular-gauge.has-overall-meter::before { display:none; }
 .circular-gauge-rings { position:absolute; z-index:1; top:0; left:0; width:100%; height:auto; overflow:visible; }
 .circular-gauge.has-overall-meter .circular-gauge-value { position:absolute; z-index:3; left:50%; bottom:5px; transform:translateX(-50%); white-space:nowrap; }
@@ -1973,16 +2214,24 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .indicator-card .indicator-scale .indicator-scale-fill { background:var(--indicator-accent); }
 .indicator-card .indicator-scale .indicator-scale-marker { background:var(--indicator-accent) !important; }
 .result-titleline .score-gauge-copy p { max-width:290px; }
+.report-flow { padding-top:clamp(25px,4vw,48px); }
 .report-flow > .assessment-progress-label { margin-bottom:30px; }
+.result-titleline .score-gauge-card.large .score-gauge-copy > span {
+  color:#211f25;
+  font-size:clamp(23px,3vw,38px);
+  font-weight:650;
+  line-height:1.14;
+  letter-spacing:-.045em;
+}
 .pressure-badge { border:0; }
 .pressure-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
 .pressure-metric {
   display:grid;
-  grid-template-columns:minmax(0,1fr) 104px;
+  grid-template-columns:minmax(0,1fr) 133px;
   align-items:center;
   gap:12px;
   min-width:0;
-  min-height:132px;
+  min-height:150px;
   padding:15px;
   border:1px solid color-mix(in srgb,var(--metric-accent) 25%,#e0dbe3);
   border-radius:15px;
@@ -2007,8 +2256,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 }
 .pressure-metric-gauge {
   position:relative;
-  width:104px;
-  height:82px;
+  width:133px;
+  height:105px;
   align-self:center;
   overflow:visible;
 }
@@ -2024,19 +2273,19 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
   bottom:-1px;
   transform:translateX(-50%);
   color:#302b35;
-  font-size:15px;
+  font-size:19px;
   font-weight:720;
   letter-spacing:-.045em;
   font-variant-numeric:tabular-nums;
 }
-.pressure-metric-gauge small { color:#827c89; font-size:8px; font-weight:600; letter-spacing:-.02em; }
+.pressure-metric-gauge small { color:#827c89; font-size:10px; font-weight:600; letter-spacing:-.02em; }
 
 /* Make assessment progress easy to read and the moving endpoint easier to spot. */
 .assessment-shell .assessment-progress-label {
   font-size:15px;
   letter-spacing:.07em;
 }
-.assessment-shell .assessment-progress-label > span:last-child {
+.assessment-shell .assessment-progress-label > .assessment-progress-count {
   display:inline-flex;
   align-items:baseline;
   gap:4px;
@@ -2085,10 +2334,11 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 @media (max-width:700px) {
   .pressure-pair { grid-template-columns:1fr; }
   .result-titleline .score-gauge-card.large { flex-direction:column; align-items:stretch; }
-  .result-titleline .score-gauge-card.large .circular-gauge { align-self:center; max-width:min(260px,100%); }
-  .result-titleline .score-gauge-card.large .circular-gauge-value { font-size:33.6px; }
+  .result-titleline .score-gauge-card.large .circular-gauge { align-self:center; max-width:min(350px,100%); }
+  .result-titleline .score-gauge-card.large .circular-gauge.has-overall-meter { transform:none; }
+  .result-titleline .score-gauge-card.large .circular-gauge-value { font-size:45.4px; }
   .assessment-shell .assessment-progress-label { font-size:14px; }
-  .assessment-shell .assessment-progress-label > span:last-child { font-size:20px; }
+  .assessment-shell .assessment-progress-label > .assessment-progress-count { font-size:20px; }
   .v2-score-panel .circular-gauge .circular-gauge-value { font-size:31.05px; }
   .v2-score-dimension > div:first-child { font-size:12.65px; }
   .v2-score-dimension > div:first-child b { font-size:17.25px; }
@@ -2535,3 +2785,31 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 .report-flow .indicator-card .indicator-scale .indicator-scale-fill {
   background:var(--score-gradient) !important;
 }
+.report-flow .result-insights .insight-intro {
+  margin:13px 0 4px;
+  color:#625d67;
+  font-size:14px;
+  line-height:1.5;
+}
+.report-flow .result-insights ul { margin-top:15px; }
+.report-flow .result-insights li {
+  grid-template-columns:30px minmax(0,1fr);
+  align-items:start;
+  gap:11px;
+  padding:15px 0;
+}
+.report-flow .result-insights .insight-index {
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  border:1px solid #d8c4d5;
+  border-radius:10px;
+  background:linear-gradient(145deg,#edf8f7,#f6eff6);
+  color:#87506f;
+  font-size:11px;
+  font-weight:750;
+  font-variant-numeric:tabular-nums;
+}
+.report-flow .result-insights li > div { min-width:0; display:grid; gap:5px; }
+.report-flow .result-insights li .insight-copy { font-size:13px; line-height:1.5; color:#615b65; }
