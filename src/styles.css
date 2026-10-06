@@ -2813,3 +2813,15 @@ button:focus-visible, a:focus-visible { outline: 3px solid #8c73ac; outline-offs
 }
 .report-flow .result-insights li > div { min-width:0; display:grid; gap:5px; }
 .report-flow .result-insights li .insight-copy { font-size:13px; line-height:1.5; color:#615b65; }
+
+/* Keep every V1.2 route on the same, more vivid color intensity. */
+:root { --theme-saturation: 1.22; }
+#root > .v2-home,
+#root > .site-header,
+#root > .flow-header,
+#root > .assessment-shell,
+#root > .assessment-overlay,
+#root > .info-page,
+#root > .site-footer {
+  filter: saturate(var(--theme-saturation));
+}
